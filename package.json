@@ -1,0 +1,37 @@
+{
+  "name": "badgen-cli",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [
+    "cli",
+    "badge",
+    "svg"
+  ],
+  "bin": {
+    "badgen": "cli.js"
+  },
+  "scripts": {
+    "lint": "standart",
+    "test": "tap"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/badgen/badgen-cli.git"
+  },
+  "author": "GMartigny <guillaume.martigny@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/badgen/badgen-cli/issues"
+  },
+  "homepage": "https://github.com/badgen/badgen-cli#readme",
+  "dependencies": {
+    "badgen": "^2.7.1",
+    "badgen-icons": "^0.8.0",
+    "meow": "^5.0.0"
+  },
+  "devDependencies": {
+    "execa": "^1.0.0",
+    "standart": "^6.1.0",
+    "tap": "^13.1.2"
+  }
+}
