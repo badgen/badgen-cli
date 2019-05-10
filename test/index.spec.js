@@ -10,9 +10,21 @@ const check = async (t, params) => {
   }
 }
 
+tap.test('Output help and version', async t => {
+  const stdout = await execa.stdout('./cli.js', ['--help'])
+  t.ok(stdout.includes('Usage'))
+
+  const version = await execa.stdout('./cli.js', ['--version'])
+  t.equal(version, require('../package.json').version)
+})
+
 tap.test('No status', async t => {
-  const error = await execa.stderr('./cli.js')
-  t.ok(error.includes('status'))
+  try {
+    await execa('./cli.js')
+  } catch (error) {
+    const { stderr } = error
+    t.ok(stderr.includes('status'))
+  }
 })
 
 tap.test('Status only', async t => {

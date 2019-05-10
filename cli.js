@@ -1,38 +1,10 @@
 #!/usr/bin/env node
 
-const meow = require('meow')
+const mri = require('mri')
 const badgen = require('badgen')
 const icons = require('badgen-icons')
 
-const flags = {
-  status: {
-    type: 'string',
-    alias: 's'
-  },
-  subject: {
-    type: 'string',
-    alias: 'j',
-    default: ''
-  },
-  color: {
-    type: 'string',
-    alias: 'c'
-  },
-  flat: {
-    type: 'boolean',
-    alias: 'f'
-  },
-  icon: {
-    type: 'string',
-    alias: 'i'
-  },
-  iconWidth: {
-    type: 'string',
-    alias: 'w'
-  }
-}
-
-const cli = meow(`
+const help = `
     Usage
         $ badgen <options>
 
@@ -46,33 +18,72 @@ const cli = meow(`
 
     Example
         $ badgen --subject test --status ok --color green --icon terminal --flat > test.svg
-`, {
-  flags
-})
+`
 
-const options = {}
-
-// Normalize flag to keep the last override
-// Might be unnecessary when https://github.com/sindresorhus/meow/issues/111 is resolved
-Object.keys(flags).forEach(key => {
-  let flag = cli.flags[key]
-
-  if (Array.isArray(flag)) {
-    flag = flag[flag.length - 1]
+const args = mri(process.argv.slice(2), {
+  string: ['status', 'subject', 'color', 'icon', 'icon-width'],
+  boolean: ['flat', 'help', 'version'],
+  alias: {
+    s: 'status',
+    j: 'subject',
+    c: 'color',
+    f: 'flat',
+    i: 'icon',
+    w: 'icon-width',
+    h: 'help',
+    v: 'version'
   }
-
-  options[key] = flag
 })
 
-options.style = options.flat && 'flat'
+if (args.help) {
+  console.log(help)
+  process.exit()
+}
 
-const icon = icons[options.icon === '' ? options.subject : options.icon]
-options.icon = (icon && icon.base64) || ''
-options.iconWidth = options.iconWidth || (icon && icon.width) || null
+if (args.version) {
+  console.log(require('./package.json').version)
+  process.exit()
+}
 
 try {
-  const svg = badgen(options)
+  if (!args.status) {
+    throw new Error('`--status` is required.')
+  }
+
+  const opts = createBadgenOptions(args)
+  const svg = badgen(opts)
   console.log(svg)
 } catch (error) {
   console.error(error.message)
+  process.exit(1)
+}
+
+function createBadgenOptions (args) {
+  const { status, subject = '', color, flat, icon, 'icon-width': iconWidth } = args
+
+  const options = {
+    status,
+    subject,
+    color,
+    flat,
+    icon,
+    iconWidth
+  }
+
+  // Normalize flag to keep the last override
+  Object.keys(options).forEach(key => {
+    const flag = options[key]
+
+    if (Array.isArray(flag)) {
+      options[key] = flag[flag.length - 1]
+    }
+  })
+
+  options.style = options.flat && 'flat'
+
+  const matchedIcon = icons[options.icon === '' ? options.subject : options.icon]
+  options.icon = (matchedIcon && matchedIcon.base64) || ''
+  options.iconWidth = options.iconWidth || (matchedIcon && matchedIcon.width) || null
+
+  return options
 }
