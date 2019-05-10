@@ -5,19 +5,19 @@ const badgen = require('badgen')
 const icons = require('badgen-icons')
 
 const help = `
-    Usage
-        $ badgen <options>
+  Usage
+      $ badgen <options>
 
-    Options
-        -s, --status <text>            Status of the badge, right part (required)
-        -j, --subject <text>           Subject of the badge, left part
-        -c, --color <RGB / ColorName>  Color of the status
-        -f, --flat                     Use the flat badge style
-        -i, --icon [<IconName>]        Icon to use
-        -w, --icon-width <Number>      Width of the icon if not square
+  Options
+      -s, --status <text>            Status of the badge, right part (required)
+      -j, --subject <text>           Subject of the badge, left part
+      -c, --color <RGB / ColorName>  Color of the status
+      -f, --flat                     Use the flat badge style
+      -i, --icon [<IconName>]        Icon to use
+      -w, --icon-width <Number>      Width of the icon if not square
 
-    Example
-        $ badgen --subject test --status ok --color green --icon terminal --flat > test.svg
+  Example
+      $ badgen --subject test --status ok --color green --icon terminal --flat > test.svg
 `
 
 const args = mri(process.argv.slice(2), {
