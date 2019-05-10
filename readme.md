@@ -27,8 +27,8 @@ Use the fastest badge generator from your CLI.
 
 ## See also
 
-[Badgen](https://github.com/badgen/badgen), the module behind this CLI.
+[badgen](https://github.com/badgen/badgen), the module behind this CLI.
 
 ## License
 
-[ISC](license)
+[MIT](./LICENSE)
