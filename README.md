@@ -17,7 +17,7 @@ Use the fastest badge generator from your CLI.
 ## Options
 
  * `--status`, `-s`<br>
-    (required) String, Right-hand side of the badge
+    String, right-hand side of the badge (required)
  * `--subject`, `-j`<br>
     String, left-hand side of the badge
  * `--color`, `-c`<br>
