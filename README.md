@@ -1,4 +1,8 @@
-# Badgen-cli
+# badgen-cli
+
+[![npm version][npm-src]][npm-href]
+[![Install size][packagephobia-src]][packagephobia-href]
+[![License][license-src]][license-href]
 
 Use the fastest badge generator from your CLI.
 
@@ -6,7 +10,7 @@ Use the fastest badge generator from your CLI.
 
     $ npm install -g badgen-cli
 
-## Usage
+## Usage
 
     $ badgen --subject build --status ok --color green > build-ok.svg
 
@@ -27,8 +31,11 @@ Use the fastest badge generator from your CLI.
 
 ## See also
 
-[badgen](https://github.com/badgen/badgen), the module behind this CLI.
+- [badgen](https://github.com/badgen/badgen), the module behind this CLI.
 
-## License
-
-[MIT](./LICENSE)
+[npm-src]: https://badgen.net/npm/v/badgen-cli
+[npm-href]: https://www.npmjs.com/package/badgen-cli
+[packagephobia-src]: https://badgen.net/packagephobia/install/badgen-cli
+[packagephobia-href]: https://packagephobia.now.sh/result?p=badgen-cli
+[license-src]: https://badgen.net/github/license/badgen/badgen-cli
+[license-href]: LICENSE
