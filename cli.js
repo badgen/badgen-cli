@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const mri = require('mri')
-const badgen = require('badgen')
+const { badgen } = require('badgen')
 const icons = require('badgen-icons')
 
 const help = `

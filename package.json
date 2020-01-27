@@ -15,8 +15,8 @@
     "test": "tap"
   },
   "dependencies": {
-    "badgen": "^2.7.1",
-    "badgen-icons": "^0.8.0",
+    "badgen": "^3.0.1",
+    "badgen-icons": "^0.13.0",
     "mri": "^1.1.4"
   },
   "devDependencies": {
