@@ -3,10 +3,10 @@
   "version": "0.1.1",
   "description": "",
   "license": "MIT",
-  "repository": "git+https://github.com/badgen/badgen-cli.git",
+  "repository": "https://github.com/badgen/badgen-cli.git",
+  "homepage": "https://github.com/badgen/badgen-cli#readme",
   "author": "GMartigny <guillaume.martigny@gmail.com>",
   "bugs": "https://github.com/badgen/badgen-cli/issues",
-  "homepage": "https://github.com/badgen/badgen-cli#readme",
   "bin": {
     "badgen": "cli.js"
   },
@@ -20,7 +20,7 @@
     "mri": "^1.1.4"
   },
   "devDependencies": {
-    "execa": "^1.0.0",
+    "execa": "^4.0.0",
     "standard": "^12.0.1",
     "tap": "^13.1.2"
   },

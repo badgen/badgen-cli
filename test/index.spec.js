@@ -11,10 +11,10 @@ const check = async (t, params) => {
 }
 
 tap.test('Output help and version', async t => {
-  const stdout = await execa.stdout('./cli.js', ['--help'])
+  const { stdout } = await execa('./cli.js', ['--help'])
   t.ok(stdout.includes('Usage'))
 
-  const version = await execa.stdout('./cli.js', ['--version'])
+  const { stdout: version } = await execa('./cli.js', ['--version'])
   t.equal(version, require('../package.json').version)
 })
 
