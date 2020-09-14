@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "badgen": "^3.0.1",
-    "badgen-icons": "^0.16.0",
+    "badgen-icons": "^0.17.0",
     "mri": "^1.1.4"
   },
   "devDependencies": {
